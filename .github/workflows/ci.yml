@@ -20,11 +20,11 @@ jobs:
       - run: pytest -v 
       - run: ruff check .
     imagem:
-      runs-on: ubuntu-latest
+      runs-on: ubuntu-latest .
 
       steps:
       - uses: actions/checkout@v7
-      - run: docker build -t biblioteca-ci:latest
-      - run: docker run -d -name biblioteca-ci -p 8000:8000 biblioteca:latest
+      - run: docker build -t biblioteca-ci:latest .
+      - run: docker run -d --name biblioteca-ci -p 8000:8000 biblioteca:latest
       - run: sleep 10
       - run: curl -fsS http://localhost:8000/saude; then exit 0
