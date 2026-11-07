@@ -31,7 +31,7 @@ jobs:
   publicar:
     needs: imagem
     runs-on: ubuntu-latest
-    permisions:
+    permissions:
       content: read
       packages: write
   steps:
